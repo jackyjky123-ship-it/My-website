@@ -1,17 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const menuIcon = document.getElementById('menu-icon');
+    const navbar = document.querySelector('nav');
+
+    if (menuIcon && navbar) {
+        menuIcon.addEventListener('click', () => {
+            menuIcon.classList.toggle('fa-xmark');
+            navbar.classList.toggle('active');
+        });
+
+        navbar.querySelectorAll('a').forEach(link => {
+             link.addEventListener('click', () => {
+                menuIcon.classList.remove('fa-xmark');
+                navbar.classList.remove('active');
+             });
+        });
+    }
     const linkHome = document.getElementById('link-home');
     const linkSkills = document.getElementById('link-skills');
     const sectionHome = document.getElementById('section-home');
     const sectionSkills = document.getElementById('section-skills');
 
-    // Helper to hide all sections
     function hideAllSections() {
         if (sectionHome) sectionHome.style.display = 'none';
         if (sectionSkills) sectionSkills.style.display = 'none';
-        // Add other sections here as needed
     }
-
-    // Helper to deactivate all links
     function deactivateAllLinks() {
         document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
     }
@@ -23,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
             linkHome.classList.add('active');
             
             hideAllSections();
-            // Remove inline display style to let CSS take over (display: flex)
             sectionHome.style.display = ''; 
         });
     }
@@ -35,8 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
             linkSkills.classList.add('active');
 
             hideAllSections();
-            // Remove inline display style to let CSS take over (display: flex coming from .skills class if strictly defined, or block)
-            // But wait, initially it is style="display: none". Removing it shows it.
             sectionSkills.style.display = ''; 
         });
     }

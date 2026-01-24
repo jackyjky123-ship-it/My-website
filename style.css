@@ -64,7 +64,17 @@ nav a.active {
   border-bottom: 3px solid #b74b4b;
 }
 
+#menu-icon {
+  font-size: 3.6rem;
+  color: #b74b4b;
+  display: none;
+}
+
 @media (max-width: 995px) {
+  #menu-icon {
+    display: block;
+    cursor: pointer;
+  }
   nav {
     position: absolute;
     display: none;
@@ -281,15 +291,14 @@ span {
   }
 }
 
-/* Skills Section Styles */
 .skills {
   min-height: 100vh;
   padding: 10rem 9% 2rem;
   background-color: black;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center content vertically */
-  align-items: center; /* Center content horizontally if needed, though containers handle width */
+  justify-content: center; 
+  align-items: center; 
 }
 
 .heading {
@@ -307,7 +316,7 @@ span {
 }
 
 .skills-box {
-    background: #161616; /* Slightly lighter than black for contrast */
+    background: #161616; 
     border-radius: 2rem;
     border: 2px solid #b74b4b;
     padding: 3rem 2rem;
