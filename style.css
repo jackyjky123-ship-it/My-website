@@ -140,6 +140,17 @@ span {
   font-size: 1.6rem;
 }
 
+.home-content .text-content ul {
+  font-size: 1.6rem;
+  margin-top: 1rem;
+  margin-left: 2rem;
+}
+
+.home-content .text-content ul li {
+  list-style: disc;
+  margin-bottom: 0.5rem;
+}
+
 .home-img {
   border-radius: 50%;
 }
@@ -220,25 +231,24 @@ span {
 }
 
 .typing-text span::before {
-  content: "software Developer";
+  content: "";
   color: #b74b4b;
   animation: words 20s infinite;
 }
 
 .typing-text span::after {
   content: "";
-  background-color: black;
   position: absolute;
-  width: calc(100% + 8px);
+  width: 0;
   height: 100%;
-  border-left: 3px solid black;
-  right: -8;
-  animation: cursor 0.6s infinite;
+  border-left: 3px solid #b74b4b; /* Make it the cursor color directly, though animation handles it too */
+  right: -8px;
+  animation: cursor 0.8s infinite;
 }
 
 @keyframes cursor {
   to {
-    border-left: 3px solid #b74b4b;
+    border-left: 3px solid transparent;
   }
 }
 
@@ -274,11 +284,12 @@ span {
 @media (max-width: 995px) {
   .home {
     flex-direction: column;
-    margin: 5rem 4rem;
+    margin: 5rem 2rem;
   }
 
   .home .home-content h3 {
     font-size: 2.5rem;
+    margin-bottom: 3rem;
   }
 
   .home-content h1 {
